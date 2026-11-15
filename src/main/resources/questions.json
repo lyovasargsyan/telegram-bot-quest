@@ -1,0 +1,722 @@
+[
+  {
+    "id": "q01",
+    "category": "Java Basics",
+    "text": "Which Java type stores a whole number with 32 bits?",
+    "options": [
+      {
+        "id": "q01-a",
+        "text": "int"
+      },
+      {
+        "id": "q01-b",
+        "text": "long"
+      },
+      {
+        "id": "q01-c",
+        "text": "double"
+      },
+      {
+        "id": "q01-d",
+        "text": "boolean"
+      }
+    ],
+    "correctOptionId": "q01-a"
+  },
+  {
+    "id": "q02",
+    "category": "Java Basics",
+    "text": "Which keyword creates a new object?",
+    "options": [
+      {
+        "id": "q02-a",
+        "text": "class"
+      },
+      {
+        "id": "q02-b",
+        "text": "new"
+      },
+      {
+        "id": "q02-c",
+        "text": "static"
+      },
+      {
+        "id": "q02-d",
+        "text": "final"
+      }
+    ],
+    "correctOptionId": "q02-b"
+  },
+  {
+    "id": "q03",
+    "category": "Java Basics",
+    "text": "What is the entry point of a simple Java application?",
+    "options": [
+      {
+        "id": "q03-a",
+        "text": "start()"
+      },
+      {
+        "id": "q03-b",
+        "text": "run()"
+      },
+      {
+        "id": "q03-c",
+        "text": "main(String[] args)"
+      },
+      {
+        "id": "q03-d",
+        "text": "init()"
+      }
+    ],
+    "correctOptionId": "q03-c"
+  },
+  {
+    "id": "q04",
+    "category": "Java Basics",
+    "text": "Which comparison checks primitive int values for equality?",
+    "options": [
+      {
+        "id": "q04-a",
+        "text": "="
+      },
+      {
+        "id": "q04-b",
+        "text": "=="
+      },
+      {
+        "id": "q04-c",
+        "text": "equals()"
+      },
+      {
+        "id": "q04-d",
+        "text": "compareTo()"
+      }
+    ],
+    "correctOptionId": "q04-b"
+  },
+  {
+    "id": "q05",
+    "category": "Java Basics",
+    "text": "What does final mean for a local variable?",
+    "options": [
+      {
+        "id": "q05-a",
+        "text": "It is always static"
+      },
+      {
+        "id": "q05-b",
+        "text": "It cannot be reassigned after initialization"
+      },
+      {
+        "id": "q05-c",
+        "text": "It is visible everywhere"
+      },
+      {
+        "id": "q05-d",
+        "text": "It is nullable"
+      }
+    ],
+    "correctOptionId": "q05-b"
+  },
+  {
+    "id": "q06",
+    "category": "OOP",
+    "text": "Which concept hides internal state behind methods?",
+    "options": [
+      {
+        "id": "q06-a",
+        "text": "Encapsulation"
+      },
+      {
+        "id": "q06-b",
+        "text": "Compilation"
+      },
+      {
+        "id": "q06-c",
+        "text": "Serialization"
+      },
+      {
+        "id": "q06-d",
+        "text": "Recursion"
+      }
+    ],
+    "correctOptionId": "q06-a"
+  },
+  {
+    "id": "q07",
+    "category": "OOP",
+    "text": "What can a Java class extend directly?",
+    "options": [
+      {
+        "id": "q07-a",
+        "text": "Any number of classes"
+      },
+      {
+        "id": "q07-b",
+        "text": "Exactly two classes"
+      },
+      {
+        "id": "q07-c",
+        "text": "At most one class"
+      },
+      {
+        "id": "q07-d",
+        "text": "Only interfaces"
+      }
+    ],
+    "correctOptionId": "q07-c"
+  },
+  {
+    "id": "q08",
+    "category": "OOP",
+    "text": "Which keyword refers to the current object?",
+    "options": [
+      {
+        "id": "q08-a",
+        "text": "super"
+      },
+      {
+        "id": "q08-b",
+        "text": "this"
+      },
+      {
+        "id": "q08-c",
+        "text": "self"
+      },
+      {
+        "id": "q08-d",
+        "text": "current"
+      }
+    ],
+    "correctOptionId": "q08-b"
+  },
+  {
+    "id": "q09",
+    "category": "OOP",
+    "text": "What does method overriding require?",
+    "options": [
+      {
+        "id": "q09-a",
+        "text": "Same method signature in a subclass"
+      },
+      {
+        "id": "q09-b",
+        "text": "Different name in one class"
+      },
+      {
+        "id": "q09-c",
+        "text": "Only static methods"
+      },
+      {
+        "id": "q09-d",
+        "text": "A private superclass method"
+      }
+    ],
+    "correctOptionId": "q09-a"
+  },
+  {
+    "id": "q10",
+    "category": "OOP",
+    "text": "Which type can declare abstract methods and be implemented by multiple classes?",
+    "options": [
+      {
+        "id": "q10-a",
+        "text": "package"
+      },
+      {
+        "id": "q10-b",
+        "text": "interface"
+      },
+      {
+        "id": "q10-c",
+        "text": "record component"
+      },
+      {
+        "id": "q10-d",
+        "text": "constructor"
+      }
+    ],
+    "correctOptionId": "q10-b"
+  },
+  {
+    "id": "q11",
+    "category": "Collections",
+    "text": "Which collection keeps unique elements?",
+    "options": [
+      {
+        "id": "q11-a",
+        "text": "List"
+      },
+      {
+        "id": "q11-b",
+        "text": "Set"
+      },
+      {
+        "id": "q11-c",
+        "text": "Queue"
+      },
+      {
+        "id": "q11-d",
+        "text": "ArrayList"
+      }
+    ],
+    "correctOptionId": "q11-b"
+  },
+  {
+    "id": "q12",
+    "category": "Collections",
+    "text": "Which interface maps keys to values?",
+    "options": [
+      {
+        "id": "q12-a",
+        "text": "Map"
+      },
+      {
+        "id": "q12-b",
+        "text": "List"
+      },
+      {
+        "id": "q12-c",
+        "text": "Set"
+      },
+      {
+        "id": "q12-d",
+        "text": "Deque"
+      }
+    ],
+    "correctOptionId": "q12-a"
+  },
+  {
+    "id": "q13",
+    "category": "Collections",
+    "text": "Which List implementation supports indexed access efficiently in typical use?",
+    "options": [
+      {
+        "id": "q13-a",
+        "text": "HashSet"
+      },
+      {
+        "id": "q13-b",
+        "text": "ArrayList"
+      },
+      {
+        "id": "q13-c",
+        "text": "TreeMap"
+      },
+      {
+        "id": "q13-d",
+        "text": "PriorityQueue"
+      }
+    ],
+    "correctOptionId": "q13-b"
+  },
+  {
+    "id": "q14",
+    "category": "Collections",
+    "text": "What does List.of(\"a\", \"b\") return?",
+    "options": [
+      {
+        "id": "q14-a",
+        "text": "A mutable ArrayList"
+      },
+      {
+        "id": "q14-b",
+        "text": "An unmodifiable list"
+      },
+      {
+        "id": "q14-c",
+        "text": "A HashMap"
+      },
+      {
+        "id": "q14-d",
+        "text": "A stream"
+      }
+    ],
+    "correctOptionId": "q14-b"
+  },
+  {
+    "id": "q15",
+    "category": "Collections",
+    "text": "Which collection is designed for FIFO processing?",
+    "options": [
+      {
+        "id": "q15-a",
+        "text": "Queue"
+      },
+      {
+        "id": "q15-b",
+        "text": "Set"
+      },
+      {
+        "id": "q15-c",
+        "text": "Map"
+      },
+      {
+        "id": "q15-d",
+        "text": "TreeSet"
+      }
+    ],
+    "correctOptionId": "q15-a"
+  },
+  {
+    "id": "q16",
+    "category": "Exceptions",
+    "text": "Which block runs after try/catch in normal execution?",
+    "options": [
+      {
+        "id": "q16-a",
+        "text": "throw"
+      },
+      {
+        "id": "q16-b",
+        "text": "finally"
+      },
+      {
+        "id": "q16-c",
+        "text": "extends"
+      },
+      {
+        "id": "q16-d",
+        "text": "switch"
+      }
+    ],
+    "correctOptionId": "q16-b"
+  },
+  {
+    "id": "q17",
+    "category": "Exceptions",
+    "text": "What does throw do?",
+    "options": [
+      {
+        "id": "q17-a",
+        "text": "Declares a package"
+      },
+      {
+        "id": "q17-b",
+        "text": "Creates a thread"
+      },
+      {
+        "id": "q17-c",
+        "text": "Raises an exception"
+      },
+      {
+        "id": "q17-d",
+        "text": "Closes a stream"
+      }
+    ],
+    "correctOptionId": "q17-c"
+  },
+  {
+    "id": "q18",
+    "category": "Exceptions",
+    "text": "Which exception is checked?",
+    "options": [
+      {
+        "id": "q18-a",
+        "text": "NullPointerException"
+      },
+      {
+        "id": "q18-b",
+        "text": "IllegalArgumentException"
+      },
+      {
+        "id": "q18-c",
+        "text": "IOException"
+      },
+      {
+        "id": "q18-d",
+        "text": "ArithmeticException"
+      }
+    ],
+    "correctOptionId": "q18-c"
+  },
+  {
+    "id": "q19",
+    "category": "Exceptions",
+    "text": "What is a benefit of try-with-resources?",
+    "options": [
+      {
+        "id": "q19-a",
+        "text": "It closes eligible resources automatically"
+      },
+      {
+        "id": "q19-b",
+        "text": "It ignores exceptions"
+      },
+      {
+        "id": "q19-c",
+        "text": "It retries failed calls"
+      },
+      {
+        "id": "q19-d",
+        "text": "It makes variables global"
+      }
+    ],
+    "correctOptionId": "q19-a"
+  },
+  {
+    "id": "q20",
+    "category": "Streams",
+    "text": "Which stream operation transforms each element?",
+    "options": [
+      {
+        "id": "q20-a",
+        "text": "filter"
+      },
+      {
+        "id": "q20-b",
+        "text": "map"
+      },
+      {
+        "id": "q20-c",
+        "text": "count"
+      },
+      {
+        "id": "q20-d",
+        "text": "findFirst"
+      }
+    ],
+    "correctOptionId": "q20-b"
+  },
+  {
+    "id": "q21",
+    "category": "Streams",
+    "text": "Which operation keeps elements matching a predicate?",
+    "options": [
+      {
+        "id": "q21-a",
+        "text": "map"
+      },
+      {
+        "id": "q21-b",
+        "text": "filter"
+      },
+      {
+        "id": "q21-c",
+        "text": "sorted"
+      },
+      {
+        "id": "q21-d",
+        "text": "collect"
+      }
+    ],
+    "correctOptionId": "q21-b"
+  },
+  {
+    "id": "q22",
+    "category": "Streams",
+    "text": "Is a Stream usually reusable after a terminal operation?",
+    "options": [
+      {
+        "id": "q22-a",
+        "text": "Yes, always"
+      },
+      {
+        "id": "q22-b",
+        "text": "Only for lists"
+      },
+      {
+        "id": "q22-c",
+        "text": "No"
+      },
+      {
+        "id": "q22-d",
+        "text": "Only in parallel"
+      }
+    ],
+    "correctOptionId": "q22-c"
+  },
+  {
+    "id": "q23",
+    "category": "Streams",
+    "text": "Which operation is terminal?",
+    "options": [
+      {
+        "id": "q23-a",
+        "text": "filter"
+      },
+      {
+        "id": "q23-b",
+        "text": "map"
+      },
+      {
+        "id": "q23-c",
+        "text": "peek"
+      },
+      {
+        "id": "q23-d",
+        "text": "count"
+      }
+    ],
+    "correctOptionId": "q23-d"
+  },
+  {
+    "id": "q24",
+    "category": "Design Patterns",
+    "text": "Which pattern provides a simple interface over a complex subsystem?",
+    "options": [
+      {
+        "id": "q24-a",
+        "text": "Facade"
+      },
+      {
+        "id": "q24-b",
+        "text": "Observer"
+      },
+      {
+        "id": "q24-c",
+        "text": "Builder"
+      },
+      {
+        "id": "q24-d",
+        "text": "Strategy"
+      }
+    ],
+    "correctOptionId": "q24-a"
+  },
+  {
+    "id": "q25",
+    "category": "Design Patterns",
+    "text": "Which pattern lets an algorithm be selected through interchangeable implementations?",
+    "options": [
+      {
+        "id": "q25-a",
+        "text": "Singleton"
+      },
+      {
+        "id": "q25-b",
+        "text": "Strategy"
+      },
+      {
+        "id": "q25-c",
+        "text": "Adapter"
+      },
+      {
+        "id": "q25-d",
+        "text": "Decorator"
+      }
+    ],
+    "correctOptionId": "q25-b"
+  },
+  {
+    "id": "q26",
+    "category": "Design Patterns",
+    "text": "Which pattern constructs a complex object step by step?",
+    "options": [
+      {
+        "id": "q26-a",
+        "text": "Observer"
+      },
+      {
+        "id": "q26-b",
+        "text": "Factory Method"
+      },
+      {
+        "id": "q26-c",
+        "text": "Builder"
+      },
+      {
+        "id": "q26-d",
+        "text": "Proxy"
+      }
+    ],
+    "correctOptionId": "q26-c"
+  },
+  {
+    "id": "q27",
+    "category": "Spring Boot",
+    "text": "Which annotation marks a Spring Boot application entry class?",
+    "options": [
+      {
+        "id": "q27-a",
+        "text": "@SpringBootApplication"
+      },
+      {
+        "id": "q27-b",
+        "text": "@Entity"
+      },
+      {
+        "id": "q27-c",
+        "text": "@Test"
+      },
+      {
+        "id": "q27-d",
+        "text": "@Override"
+      }
+    ],
+    "correctOptionId": "q27-a"
+  },
+  {
+    "id": "q28",
+    "category": "Spring Boot",
+    "text": "Which annotation maps a method to an HTTP GET route?",
+    "options": [
+      {
+        "id": "q28-a",
+        "text": "@PostMapping"
+      },
+      {
+        "id": "q28-b",
+        "text": "@GetMapping"
+      },
+      {
+        "id": "q28-c",
+        "text": "@Bean"
+      },
+      {
+        "id": "q28-d",
+        "text": "@ComponentScan"
+      }
+    ],
+    "correctOptionId": "q28-b"
+  },
+  {
+    "id": "q29",
+    "category": "Spring Boot",
+    "text": "What is dependency injection used for?",
+    "options": [
+      {
+        "id": "q29-a",
+        "text": "Creating collaborators outside the dependent class"
+      },
+      {
+        "id": "q29-b",
+        "text": "Changing Java syntax"
+      },
+      {
+        "id": "q29-c",
+        "text": "Compiling SQL"
+      },
+      {
+        "id": "q29-d",
+        "text": "Encrypting HTTP"
+      }
+    ],
+    "correctOptionId": "q29-a"
+  },
+  {
+    "id": "q30",
+    "category": "Spring Boot",
+    "text": "Which file commonly holds Spring Boot YAML configuration?",
+    "options": [
+      {
+        "id": "q30-a",
+        "text": "application.yml"
+      },
+      {
+        "id": "q30-b",
+        "text": "pom.lock"
+      },
+      {
+        "id": "q30-c",
+        "text": "web.xml"
+      },
+      {
+        "id": "q30-d",
+        "text": "module-info.java"
+      }
+    ],
+    "correctOptionId": "q30-a"
+  }
+]

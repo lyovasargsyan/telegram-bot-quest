@@ -1,0 +1,11 @@
+server:
+  address: 0.0.0.0
+  port: ${PORT:8080}
+
+telegram:
+  bot-token: ${TELEGRAM_BOT_TOKEN:}
+  webhook-secret: ${TELEGRAM_WEBHOOK_SECRET:}
+
+spring:
+  application:
+    name: telegram-bot-quest

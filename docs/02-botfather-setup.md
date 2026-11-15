@@ -1,0 +1,5 @@
+# Create a bot with BotFather
+
+Open Telegram and find the verified [@BotFather](https://t.me/BotFather). Start it, use `/newbot`, choose a display name and unique username ending in `bot`, and keep the issued token private. The username is safe to share; the token is equivalent to an API password. If it leaks, revoke it through BotFather and update your deployment secret.
+
+Set `TELEGRAM_BOT_TOKEN` in your local run configuration or shell and `TELEGRAM_WEBHOOK_SECRET` to a separate random value using only letters, digits, `_`, and `-` (1–256 characters). Do not paste either into code, commits, screenshots, or support messages. `.env.example` contains placeholders only; Spring Boot reads environment variables, not `.env` automatically. To verify the bot exists, visit its `t.me` username or call `getMe` using a local environment variable; avoid command history or shared logs that reveal the token. See [task 01](../tasks/01-create-telegram-bot.md) and [BotFather guide](https://core.telegram.org/bots/tutorial#obtain-your-bot-token).

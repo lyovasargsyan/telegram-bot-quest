@@ -1,0 +1,5 @@
+# Telegram Bot HTTP API
+
+The Bot API is an HTTPS API. Methods such as `sendMessage` and `answerCallbackQuery` are called at `https://api.telegram.org/bot<TOKEN>/<method>`. This URL embeds the token, so avoid logging request URLs or raw client exceptions. The supplied `TelegramApiClient` sends JSON with Spring’s `RestClient`, handles HTTP/API failures, and exposes methods for plain messages, messages with inline keyboards, and callback acknowledgements.
+
+`sendMessage` needs a chat ID and text. An inline keyboard is a list of button rows; each button has display text and short `callback_data` that returns in a callback query. A clicked button should be acknowledged with `answerCallbackQuery`, even when its answer is stale. Never send the `Question` record directly: it contains `correctOptionId`. Use `Question.prompt()` to obtain a response model without the answer key. See [official Bot API](https://core.telegram.org/bots/api), [task 04](../tasks/04-inline-buttons.md), and [architecture](05-quiz-architecture.md).
