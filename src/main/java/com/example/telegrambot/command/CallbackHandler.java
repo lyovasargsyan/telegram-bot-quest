@@ -1,9 +1,6 @@
 package com.example.telegrambot.command;
 
-import com.example.telegrambot.quiz.AnswerOption;
-import com.example.telegrambot.quiz.QuestionPrompt;
-import com.example.telegrambot.quiz.QuizResult;
-import com.example.telegrambot.quiz.QuizService;
+import com.example.telegrambot.quiz.*;
 import com.example.telegrambot.session.QuizSession;
 import com.example.telegrambot.session.SessionStore;
 import com.example.telegrambot.telegram.InlineButton;
@@ -20,11 +17,13 @@ public class CallbackHandler {
     private final TelegramApiClient telegram;
     private final QuizService quiz;
     private final SessionStore sessions;
+    private final PromptSender prompts;
 
-    public CallbackHandler(TelegramApiClient telegram, QuizService quiz, SessionStore sessions) {
+    public CallbackHandler(TelegramApiClient telegram, QuizService quiz, SessionStore sessions, PromptSender prompts) {
         this.telegram = telegram;
         this.quiz = quiz;
         this.sessions = sessions;
+        this.prompts = prompts;
     }
 
     public void handle(TelegramCallbackQuery callback) throws Exception {
@@ -32,18 +31,15 @@ public class CallbackHandler {
         // reject duplicates/stale events, update the session, answer the callback,
         // and send the next question or final result.
         long userId = callback.from().id();
+
         String[] parts = callback.data() == null ? new String[0] : callback.data().split(":");
-        if (parts.length != 3 || !parts[0].equals("answer")) {
+        if (parts.length != 3 || !parts[0].equals("answer") || parts[1].isBlank() || parts[2].isBlank()) {
             telegram.answerCallbackQuery(callback.id(), "Unknown action.");
             return;
         }
         String questionId = parts[1];
-        try {
-            Integer.parseInt(parts[2]);
-        } catch (NumberFormatException e) {
-            telegram.answerCallbackQuery(callback.id(), "Unknown action.");
-            return;
-        }
+        String optionId = parts[2];
+
 
         Optional<QuizSession> found = sessions.find(userId);
         if (found.isEmpty()) {
@@ -52,8 +48,9 @@ public class CallbackHandler {
         }
         QuizSession session = found.get();
 
-        String currentId = session.questionIds().get(session.currentIndex());
-        if (!currentId.equals(questionId)) {
+        int index = session.currentIndex();
+        if (index < 0 || index >= session.questionIds().size()
+                || !session.questionIds().get(index).equals(questionId)) {
             telegram.answerCallbackQuery(callback.id(), "That question is no longer active.");
             return;
         }
@@ -62,19 +59,18 @@ public class CallbackHandler {
             return;
         }
 
-        boolean correct = quiz.submitAnswer(userId, questionId, parts[2]);
+        boolean correct;
+        try {
+            correct = quiz.submitAnswer(userId, questionId, optionId);
+        } catch (RuntimeException e) {
+            telegram.answerCallbackQuery(callback.id(), "That answer can't be accepted.");
+            return;
+        }
         telegram.answerCallbackQuery(callback.id(), correct ? "Correct!" : "Wrong.");
 
-        if (session.currentIndex() + 1 < session.questionIds().size()) {
+        if (index + 1 < session.questionIds().size()) {
             QuestionPrompt prompt = quiz.nextQuestion(userId);
-
-            List<List<InlineButton>> rows = new ArrayList<>();
-            for (AnswerOption option : prompt.options()) {
-                String callbackData = "answer:" + prompt.id() + ":" + option.id();
-                rows.add(List.of(new InlineButton(option.text(), callbackData)));
-            }
-
-            telegram.sendMessageWithKeyboard(session.chatId(), prompt.text(), rows);
+            prompts.send(session.chatId(), prompt, index + 2, session.questionIds().size());
         } else {
             QuizResult result = quiz.finishQuiz(userId);
             telegram.sendMessage(session.chatId(),

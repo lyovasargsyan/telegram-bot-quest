@@ -3,6 +3,8 @@ package com.example.telegrambot.controller;
 import com.example.telegrambot.command.UpdateRouter;
 import com.example.telegrambot.config.BotProperties;
 import com.example.telegrambot.telegram.TelegramUpdate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +19,7 @@ import java.security.MessageDigest;
 @RestController
 @RequestMapping("/telegram")
 public class WebhookController {
+    private static final Logger log = LoggerFactory.getLogger(WebhookController.class);
     private final BotProperties properties;
     private final UpdateRouter router;
 
@@ -37,7 +40,11 @@ public class WebhookController {
         if (update == null || update.updateId() == null) {
             return ResponseEntity.badRequest().build();
         }
-        router.route(update);
+        try {
+            router.route(update);
+        } catch (Exception e) {
+            log.error("Failed to handle update", e);
+        }
         return ResponseEntity.ok().build();
     }
 }

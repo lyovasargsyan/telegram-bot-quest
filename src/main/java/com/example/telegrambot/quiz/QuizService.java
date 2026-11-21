@@ -42,13 +42,13 @@ public class QuizService {
                 userId,
                 chatId,
                 questionIds,
+                -1,
                 0,
-                0,
-                false
+                true
         );
     }
 
-    public boolean submitAnswer(long userId, String questionId, String optionId) throws Exception {
+    public synchronized boolean submitAnswer(long userId, String questionId, String optionId) {
         // TODO(student): Check ownership/current question and prevent duplicate scoring.
         Optional<QuizSession> quizSession = sessions.find(userId);
         if (quizSession.isEmpty()) {
@@ -70,7 +70,7 @@ public class QuizService {
             throw new IllegalArgumentException("Incorrect question");
         }
 
-        Question question = questions.findAll().get(Integer.parseInt(questionId));
+        Question question = findQuestion(questionId);
 
         boolean correct = question.correctOptionId().equals(optionId);
 
@@ -110,7 +110,7 @@ public class QuizService {
 
         String questionId = session.questionIds().get(nextIndex);
 
-        Question question = questions.findAll().get(Integer.parseInt(questionId));
+        Question question = findQuestion(questionId);
 
 
         QuizSession updatedSession = new QuizSession(
@@ -158,4 +158,12 @@ public class QuizService {
                 session.questionIds().size()
         );
     }
+
+    private Question findQuestion(String id) {
+        return questions.findAll().stream()
+                .filter(q -> q.id().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new IllegalStateException("Unknown question"));
+    }
+
 }

@@ -1,5 +1,7 @@
 package com.example.telegrambot.command;
 
+import com.example.telegrambot.quiz.PromptSender;
+import com.example.telegrambot.quiz.QuestionPrompt;
 import com.example.telegrambot.quiz.QuizService;
 import com.example.telegrambot.session.QuizSession;
 import com.example.telegrambot.session.SessionStore;
@@ -15,11 +17,13 @@ public class CommandHandler {
     private final TelegramApiClient telegram;
     private final QuizService quiz;
     private final SessionStore sessions;
+    private final PromptSender prompts;
 
-    public CommandHandler(TelegramApiClient telegram, QuizService quiz, SessionStore sessions) {
+    public CommandHandler(TelegramApiClient telegram, QuizService quiz, SessionStore sessions, PromptSender prompts) {
         this.telegram = telegram;
         this.quiz = quiz;
         this.sessions = sessions;
+        this.prompts = prompts;
     }
 
     public void start(TelegramMessage message) {
@@ -45,8 +49,9 @@ public class CommandHandler {
 
         QuizSession session = quiz.startQuiz(userId, chatId);
         sessions.save(session);
-        telegram.sendMessage(chatId,
-                "Quiz started! Question 1 of 5:\n\n" + quiz.nextQuestion(userId));
+        QuestionPrompt prompt = quiz.nextQuestion(userId);
+        prompts.send(chatId, prompt, 1, session.questionIds().size());
+
     }
 
     public void score(TelegramMessage message) {
