@@ -33,22 +33,43 @@ public class TelegramApiClient {
         call("answerCallbackQuery", Map.of("callback_query_id", callbackQueryId, "text", text));
     }
 
-    private void call(String method, Object request) {
-        try {
-            ApiResponse response = client.post()
-                    .uri("/" + method)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .body(request)
-                    .retrieve()
-                    .body(ApiResponse.class);
-            if (response == null || !response.ok()) {
-                throw new TelegramApiException("Telegram API returned an unsuccessful response for " + method);
-            }
-        } catch (RestClientException exception) {
-            // HTTP client exceptions can contain the request URL, which includes the bot token.
-            throw new TelegramApiException("Telegram API request failed for " + method);
-        }
-    }
+//    private void call(String method, Object request) {
+//        try {
+//            ApiResponse response = client.post()
+//                    .uri("/" + method)
+//                    .contentType(MediaType.APPLICATION_JSON)
+//                    .body(request)
+//                    .retrieve()
+//                    .body(ApiResponse.class);
+//            if (response == null || !response.ok()) {
+//                throw new TelegramApiException("Telegram API returned an unsuccessful response for " + method);
+//            }
+//        } catch (RestClientException exception) {
+//            // HTTP client exceptions can contain the request URL, which includes the bot token.
+//            throw new TelegramApiException("Telegram API request failed for " + method);
+//        }
+//    }
+private void call(String method, Object request) {
+    try {
+        ApiResponse response = client.post()
+                .uri("/" + method)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(request)
+                .retrieve()
+                .body(ApiResponse.class);
 
+        if (response == null || !response.ok()) {
+            throw new TelegramApiException(
+                    "Telegram API returned an unsuccessful response for " + method
+            );
+        }
+
+    } catch (RestClientException exception) {
+        throw new TelegramApiException(
+                "Telegram API request failed for " + method
+                        + ". Error: " + exception.getMessage()
+        );
+    }
+}
     private record ApiResponse(boolean ok) { }
 }
