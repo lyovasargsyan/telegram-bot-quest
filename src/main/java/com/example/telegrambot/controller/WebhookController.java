@@ -28,7 +28,7 @@ public class WebhookController {
     @PostMapping("/webhook")
     public ResponseEntity<Void> receive(
             @RequestHeader(value = "X-Telegram-Bot-Api-Secret-Token", required = false) String suppliedSecret,
-            @RequestBody TelegramUpdate update) {
+            @RequestBody TelegramUpdate update) throws Exception {
         if (suppliedSecret == null || !MessageDigest.isEqual(
                 properties.webhookSecret().getBytes(StandardCharsets.UTF_8),
                 suppliedSecret.getBytes(StandardCharsets.UTF_8))) {

@@ -15,7 +15,7 @@ public class UpdateRouter {
         this.callbacks = callbacks;
     }
 
-    public void route(TelegramUpdate update) {
+    public void route(TelegramUpdate update) throws Exception {
         TelegramCallbackQuery callback = update.callbackQuery();
         if (callback != null) {
             callbacks.handle(callback);
