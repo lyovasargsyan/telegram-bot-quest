@@ -15,7 +15,17 @@ public class TelegramApiClient {
     private final RestClient client;
 
     public TelegramApiClient(RestClient.Builder builder, BotProperties properties) {
-        this.client = builder.baseUrl("https://api.telegram.org/bot" + properties.botToken()).build();
+        String baseUrl = "https://api.telegram.org/bot" + properties.botToken();
+
+        System.out.println("API URL starts correctly: " +
+                baseUrl.startsWith("https://api.telegram.org/bot"));
+
+        System.out.println("API URL ends with token: " +
+                baseUrl.endsWith(properties.botToken()));
+
+        System.out.println("Token length: " + properties.botToken().length());
+
+        this.client = builder.baseUrl(baseUrl).build();
     }
 
     public void sendMessage(long chatId, String text) {
